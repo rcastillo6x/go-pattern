@@ -17,6 +17,7 @@ func main() {
 	if e != nil{
 		fmt.Println (e.Error())
 	}
+	// Routing
 	r.Routing(i)
 
 	//  Given an intention ChargeBack
@@ -28,6 +29,7 @@ func main() {
 	if e != nil{
 		fmt.Println (e.Error())
 	}
+	// Routing
 	r.Routing(i)
 
 }

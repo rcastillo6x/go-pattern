@@ -2,34 +2,44 @@ package main
 
 import (
 	"fmt"
+
 	"mercadolibre.com/pattern/strategy/internal/bussines/model"
-	"mercadolibre.com/pattern/strategy/internal/route"
+	mgnt "mercadolibre.com/pattern/strategy/internal/management"
 )
 
 func main() {
 	//  Given an intention Purchase
 	i := model.Intention{
-		Type: "Purchase",
-		Payload:"{}",
+		Type:    "Purchase",
+		Payload: "{}",
 	}
 	// Define the strategy
-	r, e := route.NewRouter(route.Purchase_routing)
-	if e != nil{
-		fmt.Println (e.Error())
+	r, e := mgnt.NewManagement(mgnt.PurchaseIntention)
+	if e != nil {
+		fmt.Println(e.Error())
 	}
-	// Routing
+	// Process Purchase
+	fmt.Println("*** Process Purchase ***")
+	r.Validate(i)
+	r.Processing(i)
 	r.Routing(i)
 
 	//  Given an intention ChargeBack
 	i = model.Intention{
-		Type: "ChargeBack",
-		Payload:"{}",
+		Type:    "ChargeBack",
+		Payload: "{}",
 	}
-	r, e = route.NewRouter(route.Chargeback_routing)
-	if e != nil{
-		fmt.Println (e.Error())
+
+	// Define the strategy
+	r, e = mgnt.NewManagement(mgnt.ChargebackIntention)
+	if e != nil {
+		fmt.Println(e.Error())
 	}
-	// Routing
+
+	// Process Chargeback
+	fmt.Println("*** Process ChargeBack ***")
+	r.Validate(i)
+	r.Processing(i)
 	r.Routing(i)
 
 }

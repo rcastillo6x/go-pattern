@@ -15,3 +15,17 @@ The problem is that this definition covers a huge spectrum of possibilities. Thi
 ## Structure
 
 ![alt text](../../assets/strategy-structure.png)
+
+## Applicability
+
+ Use the Strategy pattern when you want to use different variants of an algorithm within an object and be able to switch from one algorithm to another during runtime.
+
+ The Strategy pattern allows you to indirectly alter the behavior of the object during runtime by associating it with different subobjects that can perform specific subtasks in different ways.
+
+ Use the Strategy pattern when you have many similar classes that differ only in the way they perform certain behavior.
+
+ The Strategy pattern allows you to extract the variant behavior to put it into a separate class hierarchy and combine the original classes into one, thereby reducing duplicate code.
+
+ Use the pattern to isolate the business logic of a class from the implementation details of algorithms that may not be as important in the context of that logic.
+
+ The Strategy pattern allows you to isolate the code, internal data and dependencies of various algorithms from the rest of the code. The various clients get a simple interface to execute the algorithms and change them during runtime.
